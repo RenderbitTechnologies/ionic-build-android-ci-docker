@@ -9,13 +9,13 @@ It is primarily meant to be run in a CI environment, such as Gitlab CI, but can 
 Here is a sample .gitlab-ci.yml file for setting up the project and compiling it:
 
 ```yaml
-image: tobitheo/ionic-build-android-ci-docker:latest
+image: renderbit/ionic:latest
 
 compile_android:
   stage: build
   script:
     - cp debug.keystore ~/.android/debug.keystore
-    - npm install
+    - npm install --unsafe-perm
     - bower install --allow-root
     - ionic config build
     - ionic state restore
